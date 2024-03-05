@@ -14,6 +14,8 @@ int countNodes(struct node *root)
 
     while (ptr != NULL)
     {
+        printf("node element: %d\n", ptr->data);
+        printf("memory address:\n%p \n\n", ptr->data, (void *)ptr);
         count++;
         ptr = ptr->link;
     }
@@ -28,9 +30,8 @@ void addNode(struct node *root, int elemento)
     struct node *ptr = root;
 
     newNode->data = elemento;
-    newNode->link = NULL; 
-    
-    
+    newNode->link = NULL;
+
     while (ptr->link != NULL)
     {
         ptr = ptr->link;
@@ -45,28 +46,13 @@ int main()
     printf("Linked List\n\n");
 
     struct node *root = malloc(sizeof(struct node));
-    root->data = 1;
-    root->link = NULL;
 
-    struct node *current = malloc(sizeof(struct node));
-    current->data = 2;
-    current->link = NULL;
-    root->link = current;
+    for (int i = 1; i < 10; i++)
+    {
+        addNode(root, i);
+    }
 
-    struct node *current2 = malloc(sizeof(struct node));
-    current2->data = 3;
-    current2->link = NULL;
-    current->link = current2;
-
-    struct node *current3 = malloc(sizeof(struct node));
-    current3->data = 4;
-    current3->link = NULL;
-    current2->link = current3;
-
-    countNodes(root);
-
-    addNode(root, 90);
-
+    printf("\n==========\n");
     countNodes(root);
 
     printf("\n\n");
