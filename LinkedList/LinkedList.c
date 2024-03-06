@@ -15,7 +15,7 @@ int countNodes(struct node *root)
     while (ptr != NULL)
     {
         printf("node element: %d\n", ptr->data);
-        printf("memory address:\n%p \n\n", ptr->data, (void *)ptr);
+        printf("memory address:\n%p \n\n",(void *)ptr);
         count++;
         ptr = ptr->link;
     }
